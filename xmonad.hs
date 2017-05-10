@@ -53,8 +53,8 @@ main = do
                <+> myManageHook
 	       <+> manageHook defaultConfig     
     , keys = myKeys
-    , normalBorderColor = "#60A1AD" -- These are HEX values coding for RGB or 256 colors
-    , focusedBorderColor = "#7df9ff" -- "#68e862" is green. 3 pairs of hexadecimal values each hex-pair=8bits=256 combinations/colors.
+    , normalBorderColor = "#000000" -- "#60A1AD"=blue-greyish. These are HEX values coding for RGB or 256 colors.
+    , focusedBorderColor = "#68e862" -- "#7df9ff" is cyan. 3 pairs of hexadecimal values each hex-pair=8bits=256 combinations/colors.
     , borderWidth = 1
     -- autostart starts trayer for the xmobars.
     , startupHook = spawn "/home/user1/.xmonad/autostart" -- <+> spawn "(command and arguments here)" 
@@ -125,7 +125,7 @@ myLayout = defaultLayout
 
     -- spacing needs the module XMonad.Layout.Spacing
     -- spacing x sets the number of pixels for space between tiled windows.
-    tiled1 = spacing 1 $ Tall nmaster delta ratio
+    tiled1 = spacing 3 $ Tall nmaster delta ratio
     
     -- The default number of windows in the master pane  
     nmaster = 1 

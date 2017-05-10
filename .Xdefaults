@@ -10,6 +10,25 @@ URxvt*background:  rgba:0000/0000/0000/cccc
 
 URxvt*scrollBar:   false
 URxvt*foreground:  Cyan
+!URxvt*foreground:  DarkMagenta
+!URxvt*foreground:  #89B6E2
+!URxvt*foreground:  #cccccc
+!URxvt*foreground:  #34cbcb
+!URxvt*foreground:  #49d0d0
+!URxvt*foreground:  #5dd5d5
+!URxvt*foreground:  #71dada
+!URxvt*foreground:  #85e0e0
+
+!URxvt*foreground:  #ffffff ! white
+
+!URxvt*foreground:  #b32400
+!URxvt*foreground:  #b30000 ! dark red
+!URxvt*foreground:  #003B00 ! dark red
+!URxvt*foreground:  #00e600
+!URxvt*foreground:  #009900 ! dark green
+
+!URxvt*foreground:  #ff3300
+
 
 URxvt*borderless:  true
 URxvt.font:        -*-terminus-medium-*-*-*-*-180-*-*-*-*-iso8859-1
