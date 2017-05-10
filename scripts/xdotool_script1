@@ -1,0 +1,7 @@
+#!/usr/bin/xdotool
+exec urxvt
+getactivewindow key --window %@ super+v 
+getactivewindow windowsize %@ 100% 100% --sync
+key ctrl+a ctrl+k
+type screenlock --sync
+key Return
