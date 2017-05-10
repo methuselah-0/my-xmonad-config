@@ -14,18 +14,18 @@ DoNotInclude/**
 
 # -------------------------------------------------------- #
 # Ignore various xmonad files not related to a new configuration.
-./xmonad-x86_64-linux
-./xmonad.o
-./xmonad.errors
-./xmonad.hi
-./xmonad.state
+xmonad-x86_64-linux
+xmonad.o
+xmonad.errors
+xmonad.hi
+xmonad.state
 
 # Ignore various related directories.
-./xmonad_files/*
-./xmonad_files/.*
-./xmonad_docs/*
-./xmonad_docs/.*
+xmonad_files/**
+xmonad_files/.**
+xmonad_docs/**
+xmonad_docs/.**
 
 # Ignore unfinished files
-./scripts/xdotool_script1
-./scripts/wallpapers.sh
+scripts/xdotool_script1
+scripts/wallpapers.sh
