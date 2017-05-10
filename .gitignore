@@ -12,7 +12,7 @@ test-script
 # Ignore all files recursively in 'DoNotInclude'
 DoNotInclude/**
 
-# ---------------------------------------------------------------------------- #
+# -------------------------------------------------------- #
 # Ignore various xmonad files not related to a new configuration.
 xmonad-x86_64-linux
 xmonad.o
