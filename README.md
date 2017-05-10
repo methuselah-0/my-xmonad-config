@@ -17,6 +17,7 @@ For best functionality, install the following dependencies:
 Also, urxvt transparency is enabled. For more info see ~/.Xdefaults and https://wiki.haskell.org/Xmonad/Frequently_asked_questions
 
 Make sure to add the following to /etc/X11/xorg.conf:
+
     Section "Extensions"
       Option "Composite" "enable"
     EndSection
