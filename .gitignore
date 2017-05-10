@@ -1,0 +1,29 @@
+# Ignore file I'll likely delete
+test-script
+
+# Ignore all .html files, except 'important.html'
+*.html
+!important.html
+
+# Ignore all txt backup files
+*~
+\#*#
+
+# Ignore all files recursively in 'DoNotInclude'
+DoNotInclude/**
+
+# ---------------------------------------------------------------------------- #
+# Ignore various xmonad files not related to a new configuration.
+xmonad-x86_64-linux
+xmonad.o
+xmonad.errors
+xmonad.hi
+xmonad.state
+
+# Ignore various related directories.
+xmonad_files/*
+xmonad_docs/*
+
+# Ignore unfinished files
+./scripts/xdotool_script1
+:/scripts/wallpapers.sh
