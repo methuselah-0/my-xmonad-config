@@ -58,7 +58,7 @@ Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- "xft:Bitstream Vera S
                      ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = " <fc=cyan>%mpd% | Vol: %volume%</fc> } <fc=blue>%date%</fc> { %battery% | %cpu% %cpuTemp%°C | %dynnetwork% | "
+        , template = " <fc=green>%mpd% | Vol: %volume%</fc> } <fc=green>%date%</fc> { %battery% | %cpu% %cpuTemp%°C | %dynnetwork% | "
         }
 --%StdinReader%
 -- set to cpuTemp to fix cpu and uncomment cpuTemp

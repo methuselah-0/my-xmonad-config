@@ -44,8 +44,8 @@ main = do
 		       ]
     , logHook =  dynamicLogWithPP xmobarPP
           { ppOutput = hPutStrLn bottomBar
-	  , ppCurrent = xmobarColor "#0000ff" "" -- for green you can use "#429942" "" and for additional indication of active work space you can append . wrap "<" ">"
-	  , ppTitle = xmobarColor "blue" "" -- if you don't want all stdin text add ". shorten 40" without quotes.
+	  , ppCurrent = xmobarColor "#00ff00" "" . wrap "<" ">" -- for green you can use "#429942" "" and for additional indication of active work space you can append . wrap "<" ">"
+	  , ppTitle = xmobarColor "green" "" -- if you don't want all stdin text add ". shorten 40" without quotes.
 	  , ppLayout = const "" -- to disable the layout info on xmobar
 	  }
     , workspaces = myWorkspaces                    

@@ -1,4 +1,4 @@
-This is my xmonad setup running on a libreboot X200 with Parabola GNU/Linux.
+This repo is a mirror of my xmonad setup running on a libreboot X200 with Parabola GNU/Linux. 
 
 License: GPLv3
 
