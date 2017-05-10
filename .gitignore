@@ -21,8 +21,10 @@ DoNotInclude/**
 ./xmonad.state
 
 # Ignore various related directories.
-./xmonad_files
-./xmonad_docs
+./xmonad_files/*
+./xmonad_files/.*
+./xmonad_docs/*
+./xmonad_docs/.*
 
 # Ignore unfinished files
 ./scripts/xdotool_script1
