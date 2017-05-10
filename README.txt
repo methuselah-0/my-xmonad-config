@@ -1,5 +1,7 @@
 This is my xmonad setup running on a libreboot X200 with Parabola GNU/Linux.
 
+License: GPLv3
+
 For best functionality, install the following dependencies:
   * xmonad, xmonad-contrib, xmobar, trayer 
   * xscreensaver, xcompmgr, trayer, xwinwrap
@@ -8,7 +10,8 @@ For best functionality, install the following dependencies:
   * urxvt
   * alock
   * amixer, pamixer
-Then,
+
+# INSTALLATION
   cd && git clone <this url>
 
 Also, urxvt transparency is enabled. For more info see ~/.Xdefaults and https://wiki.haskell.org/Xmonad/Frequently_asked_questions
