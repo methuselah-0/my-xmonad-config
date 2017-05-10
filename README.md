@@ -11,6 +11,7 @@ For best functionality, install the following dependencies:
   * urxvt
   * alock
   * amixer, pamixer
+
 Download this repo to ~/.xmonad
 
     cd && git clone https://github.com/methuselah-0/my-xmonad-config .xmonad
