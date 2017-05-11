@@ -3,7 +3,7 @@ This repo is a mirror of my xmonad setup running on a libreboot X200 with Parabo
 License: GPLv3
 
 # Example Image
-![methuselah-0 xmonad screenshot](https://github.com/methuselah-0/my-xmonad-config/screenshot.png)
+![methuselah-0 xmonad screenshot](https://github.com/methuselah-0/my-xmonad-config/blob/master/screenshot.png)
 
 
 # INSTALLATION
