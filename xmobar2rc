@@ -1,14 +1,18 @@
-Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
-        , bgColor = "black"
+Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+-- "xft:terminus:size=8" does but doesn't look like terminus.
+-- another "more normal" font is "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
+--        , bgColor = "black" -- hex black is "#000000"
         , fgColor = "grey"
-	--alpha=transparency and it can be 0-255
-	, alpha = 0
+	--alpha=transparency and it can be 0-255, 0 is fully transparent.
+-- 	, alpha = 0
         , position = Bottom
---	, hideOnStart = False
+	, hideOnStart = False
+        , allDesktops = True
+        , overrideRedirect = True
         , commands = [ Run StdinReader
 		     ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = " <fc=grey>%StdinReader%</fc> "
+        , template = " <fc=darkgreen>%StdinReader%</fc> "
         }
 --%StdinReader%

@@ -32,8 +32,9 @@ killall trayer xwinwrap xcompmgr "$saver" && sleep 1
 
 # Set the window bars that hold xmobars at top and bottom.
 #until [[ !pgrep trayer && !pgrep xwinwrap && !pgrep xcompmgr ]] ; do sleep 0.2 ; done
-trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 0 --tint 0x000000 --height 10 & 
-trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 0 --tint 0x000000 --height 10  &
+# alpa 0-255 is non-transparent to fully transparent.
+trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10 & 
+trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10  &
 sleep 1;
 
 # Start the compositor

@@ -1,11 +1,14 @@
-Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
---        , bgColor = "black"
-	, bgColor = "#000000"
-        , fgColor = "grey"
-	--alpha=transparency and it can be 0-255
-	, alpha = 255
+Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+-- "xft:terminus:size=8" does but doesn't look like terminus.
+-- another "more normal" font is "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
+--        , bgColor = "black" -- hex black is "#000000"
+        , fgColor = "cyan"
+	--alpha=transparency and it can be 0-255, 0 is fully transparent.
+--	, alpha = 0
         , position = Top
---	, hideOnStart = False
+	, hideOnStart = False
+        , allDesktops = True
+        , overrideRedirect = True
         , commands = [ Run Cpu ["-L","3","-H","50","normal","green","high","red"] 10
 	--Run StdinReader
 --                     weather monitor
@@ -58,7 +61,7 @@ Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- "xft:Bitstream Vera S
                      ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = " <fc=green>%mpd% | Vol: %volume%</fc> } <fc=green>%date%</fc> { %battery% | %cpu% %cpuTemp%°C | %dynnetwork% | "
+        , template = " <fc=green>%mpd%</fc> | <fc=green>Vol: %volume%</fc> } <fc=green>%date%</fc> { <fc=green> %battery%</fc> | <fc=green>%cpu% %cpuTemp%°C</fc> | <fc=green>%dynnetwork%</fc>"
         }
 --%StdinReader%
 -- set to cpuTemp to fix cpu and uncomment cpuTemp
