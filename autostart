@@ -32,7 +32,7 @@ killall trayer xwinwrap xcompmgr "$saver" && sleep 1
 
 # Set the window bars that hold xmobars at top and bottom.
 #until [[ !pgrep trayer && !pgrep xwinwrap && !pgrep xcompmgr ]] ; do sleep 0.2 ; done
-# alpa 0-255 is non-transparent to fully transparent.
+# alpha 0-255 is non-transparent to fully transparent.
 trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10 & 
 trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10  &
 sleep 1;
@@ -68,8 +68,8 @@ xscreensaver -no-splash &
 # Start xmobar here if it's fucky from xmonadhs
 #xmobar ~/.xmonad/xmobarrc &
 
-# Send key combination for toggling struts which is set in ~/.xmonad/xmonad.hs
-#xdotool key super+shift+b &
+# Send key combination for toggling struts which is set in
+# ~/.xmonad/xmonad.hs xdotool key super+shift+b &
 
 # Load ~/.Xmodmap from here if it doesn't work from
 # ~/.xinitrc. Xserver seems to need to be finished initializing;

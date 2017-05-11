@@ -2,11 +2,11 @@ This repo is a mirror of my xmonad setup running on a libreboot X200 with Parabo
 
 License: GPLv3
 
-# Example Image
+# Screenshot
 ![methuselah-0 xmonad screenshot](https://github.com/methuselah-0/my-xmonad-config/blob/master/screenshot.png)
 
 
-# INSTALLATION
+# Installation
 For best functionality, install the following dependencies:
   * xmonad, xmonad-contrib, xmobar, trayer 
   * xscreensaver, xcompmgr, trayer, xwinwrap
