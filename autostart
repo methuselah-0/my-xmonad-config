@@ -7,7 +7,7 @@
 # specific to xmonad.
 
 # -------------------------------------------------------- #
-# Set default wallpaper - no, using xcompmgr and MatrixGL
+# Set default wallpaper - no, using compton and MatrixGL
 # instead.  feh --bg-scale "./wallpapers/mystic.png" &
 
 # For lots of screenshots of xscreensavers, see https://www.jwz.org/xscreensaver/screenshots/
@@ -16,7 +16,10 @@
 # -------------------------------------------------------- #
 # xscreensaver options
 #
-#saver="sonar -ping fosdem.org gnu.org"
+#saver="sonar"
+# opts for sonar: -ping fosdem.org gnu.org"
+# if using sonar you need to setuid of ping by: sudo chmod u+s /usr/lib/xscreensaver/sonar
+
 #saver="phosphor"
 #saveropts="-root -window-id WID &"
 #saver="starwars"
@@ -28,21 +31,29 @@
 saver="glmatrix"
 
 # Avoid duplicate processes if this is an xmonad restart.
-killall trayer xwinwrap xcompmgr "$saver" && sleep 1
+killall trayer xwinwrap compton "$saver" && sleep 1
 
 # Set the window bars that hold xmobars at top and bottom.
-#until [[ !pgrep trayer && !pgrep xwinwrap && !pgrep xcompmgr ]] ; do sleep 0.2 ; done
+#until [[ !pgrep trayer && !pgrep xwinwrap && !pgrep compton ]] ; do sleep 0.2 ; done
 # alpha 0-255 is non-transparent to fully transparent.
 trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10 & 
 trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10  &
 sleep 1;
 
-# Start the compositor
-xcompmgr &
-sleep 1
+# 1 for xscreensaver and 0 for feh
+bg="1"
+bgimage="wallpaperdefault" #wallpaperdefault is an alias from .bashrc
+if [[ $bg == "1" ]] ; then
+    # Start the compositor
+    compton &
+    sleep 1
+    # Use a nice xscreensaver background
+    xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID &
+elif [[ bg = "0" ]] ; then
+    eval "${bgimage}"
+fi
 
-# Use a nice xscreensaver background
-xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID &
+#xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -ping gnu.org fosdem.org &
 #xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -program 'cat /home/user1/bin/nextcloud-suite.sh/install.sh' -root -window-id WID &
 
 # Set pointer

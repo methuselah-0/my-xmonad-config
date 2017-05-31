@@ -74,6 +74,7 @@ myKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
     keysToAdd x =
       [ -- toggle all bars
       ((mod4Mask, xK_b), sendMessage ToggleStruts) --modmask x for taking arguments.
+
       -- show upper bar , hide lower
       , ((mod4Mask .|. controlMask, xK_b), sendMessage $ SetStruts [U] [D])
       -- show only lower bar
