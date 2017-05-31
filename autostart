@@ -45,7 +45,7 @@ bg="1"
 bgimage="wallpaperdefault" #wallpaperdefault is an alias from .bashrc
 if [[ $bg == "1" ]] ; then
     # Start the compositor
-    compton &
+    compton --shadow-green 1 &
     sleep 1
     # Use a nice xscreensaver background
     xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID &

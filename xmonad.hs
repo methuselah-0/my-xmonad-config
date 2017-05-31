@@ -22,7 +22,8 @@ import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog  
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
-import XMonad.Util.SpawnOnce  
+import XMonad.Util.SpawnOnce
+import XMonad.Util.Dmenu
 import System.IO
 import System.Posix.Process
 
@@ -82,6 +83,7 @@ myKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
       -- hide all bars (no toggle)
       , ((mod4Mask .|. mod1Mask, xK_b), sendMessage $ SetStruts [] [minBound .. maxBound])
 
+      , ((mod4Mask, xK_d), spawn "dmenu_run -i -nb black -nf green -sf orange -sb darkgreen -fn \"xft:terminus:pixelsize=12\"")
       , ((mod4Mask, xK_F1), kill)
       , ((0, xF86XK_Sleep), spawn "systemctl hibernate")
       , ((0, xF86XK_ScreenSaver), spawn "alock -b none -c none -i blank")
