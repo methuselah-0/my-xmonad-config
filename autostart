@@ -48,7 +48,7 @@ if [[ $bg == "1" ]] ; then
     compton --shadow-green 1 &
     sleep 1
     # Use a nice xscreensaver background
-    xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID &
+    xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID -speed 0.2 &
 elif [[ bg = "0" ]] ; then
     eval "${bgimage}"
 fi
