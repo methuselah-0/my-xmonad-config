@@ -1,5 +1,12 @@
 This repo is a mirror of my xmonad setup running on a libreboot X200 with Parabola GNU/Linux. 
 
+It has a green Matrix theme configured with:
+  * green-colored dmenu
+  * 2 green-colored xmobar
+  * live glmatrix xscreensaver as background
+  * Compton for nice shadow-effects and compositing.
+  * Many useful shortcuts and defaults, see xmonad.hs
+
 License: GPLv3
 
 # Screenshot
@@ -9,7 +16,7 @@ License: GPLv3
 # Installation
 For best functionality, install the following dependencies:
   * xmonad, xmonad-contrib, xmobar, trayer 
-  * xscreensaver, xcompmgr, trayer, xwinwrap
+  * xscreensaver, compton, trayer, xwinwrap
   * xset, xsetroot, xbacklight, xdotool
   * unclutter
   * urxvt
