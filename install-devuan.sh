@@ -14,7 +14,7 @@ cd && mkdir -p ~/bin
 # xmonad
 apt-get install -y xmonad libghc-xmonad-prof dmenu xmobar trayer unclutter feh imagemagick compton cmatrix cmatrix-xfont xdotool
 chown -R $username:$usergroup .xmonad
-cp /home/$username/.xmonad/scripts/screenlock.sh ~/bin/
+ln -s /home/$username/.xmonad/scripts/screenlock.sh ~/bin/
 chown -R $username:$usergroup ~/bin/screenlock.sh
 
 # terminal and fonts
