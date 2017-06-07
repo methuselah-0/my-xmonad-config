@@ -3,7 +3,8 @@ main(){
 #if true ; then
      # Toggle xmobar visibility
     xdotool key super+shift+control+b
-
+    xdotool key super+v # maximize screen
+    
     # Disable VT-switching
 #    setxkbmap -option srvrkeys:none
 
@@ -20,6 +21,7 @@ main(){
     
     # Reset
     xdotool key super+b
+    xdotool key super+v
     sudo -HPE -u user1 setxkbmap -option ''
     xmodmap /home/user1/.Xmodmap &
 }
