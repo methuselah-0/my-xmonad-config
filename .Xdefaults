@@ -2,13 +2,13 @@
 
 URxvt*transparent: true ! needs not be true.
 !URxvt*ineheritPixmap: true
-URxvt*fading:      30 ! the less the brighter
+URxvt*fading:      20 ! the less the brighter
 URxvt*shading:     100 ! Shading is a value between 0 and 200 where 0 is completely black, 100 completely transparent and 200 completely white.
 
 !for real transparency, see https://wiki.haskell.org/Xmonad/Frequently_asked_questions
 URxvt.fadeColor:   [0]black
 URxvt.depth:       32
-URxvt*background:  rgba:0000/0000/0000/cccc
+URxvt*background:  rgba:0000/0000/0000/9999
 !this specifies that urxvt uses 32 bit colors and uses a transparent black background. The four c specify the amount of alpha in HEX with ffff being full black and 0000 being fully transparent. You can also use the fading and blurRadius resources to give some nice effects in the transparency. see man urxvt.
 
 URxvt*scrollBar:   false
