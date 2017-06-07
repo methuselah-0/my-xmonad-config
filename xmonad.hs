@@ -161,7 +161,8 @@ myWorkspaces = ["1:Main","2:Text","3:Web","4:XMPP","5:Tox","6:IRC","7:Mail","8:M
 -- (?: Set client titles with environment variables through getEnvironment.)
 myManageHook = composeAll . concat $
   [[ title =? "emacs" --> doShift "2:Text"
-  , className =? "Iceweasel" --> doShift "3:Web"  
+  , className =? "Iceweasel" --> doShift "3:Web"
+  , className =? "Firefox" --> doShift "3:Web"    
   , title =? "Gajim" --> doShift "4:XMPP"
   , title =? "toxic" --> doShift "5:Tox"
   , title =? "weechat" --> doShift  "6:IRC"
