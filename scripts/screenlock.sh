@@ -40,7 +40,7 @@ if !(pgrep alock) && xscreensaver-command -time | grep -q 'screen blanked' ; the
     main
 elif [[ "$1" == "--force" ]] || [[ "$1" == "-f" ]] ; then
     main
-else
+elif [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]] ; then
     usage
 fi
 
