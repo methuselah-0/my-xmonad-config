@@ -4,7 +4,7 @@ import XMonad.Config
 --for the union function 
 import qualified Data.Map as M 
 import Data.Map    (fromList)
-import Data.Monoid (mappend)
+import Data.Monoid
 --keys
 import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
