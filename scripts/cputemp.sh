@@ -1,3 +1,8 @@
 #!/bin/bash
-temp1=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input)
+if [[ -f /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input ]] ; then
+    temp1="$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input)"
+elif [[ -f /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input ]] ; then
+    temp1="$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input)"
+fi
 expr "$temp1" / 1000
+
