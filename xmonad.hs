@@ -14,7 +14,9 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders -- (smartBorders) if using pidginlayout
 import XMonad.Layout.PerWorkspace  
 import XMonad.Layout.SimplestFloat
-import XMonad.Layout.IM  
+import XMonad.Layout.IM
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Grid  --for chat-windows layout
 --
 import qualified XMonad.StackSet as W -- for functions to switch panes
@@ -75,7 +77,8 @@ myKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
     keysToAdd x =
       [ -- toggle all bars
       ((mod4Mask, xK_b), sendMessage ToggleStruts) --modmask x for taking arguments.
-
+      , ((mod4Mask, xK_v), sendMessage $ Toggle FULL) --modmask x for taking arguments.
+      
       -- show upper bar , hide lower
       , ((mod4Mask .|. controlMask, xK_b), sendMessage $ SetStruts [U] [D])
       -- show only lower bar
@@ -124,7 +127,8 @@ myLayout = defaultLayout
   
     -- Personal settings for the default layouts "tiled", "Mirror tiled" and "Full".
     -- Defaults to leftmost tile option. 
-    defaultLayout = tiled1 ||| Mirror tiled1 ||| Full 
+    defaultLayout = mkToggle (single FULL) (tiled1 ||| Mirror tiled1 ||| Full)
+    --defaultLayout = Full ||| tiled1 ||| Mirror tiled1
 
     -- spacing needs the module XMonad.Layout.Spacing
     -- spacing x sets the number of pixels for space between tiled windows.

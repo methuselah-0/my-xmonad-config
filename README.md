@@ -1,4 +1,6 @@
-This repo is a mirror of my xmonad setup running on a libreboot X200 with Parabola GNU/Linux. 
+This repo is a mirror of my xmonad setup running on two different systems:
+  * libreboot X200 with Parabola GNU/Linux
+  * Devuan GNU/Linux
 
 It has a green Matrix theme configured with:
   * green-colored dmenu
@@ -12,8 +14,13 @@ License: GPLv3
 # Screenshot
 ![methuselah-0 xmonad screenshot](https://github.com/methuselah-0/my-xmonad-config/blob/master/screenshot.png)
 
+# Installation Devuan
+Download this repo to ~/.xmonad
 
-# Installation
+    cd && git clone https://github.com/methuselah-0/my-xmonad-config .xmonad
+    cd .xmonad && ./install-devuan.sh
+
+# Installation Parabola
 For best functionality, install the following dependencies:
   * xmonad, xmonad-contrib, xmobar, trayer 
   * xscreensaver, compton, trayer, xwinwrap
