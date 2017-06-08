@@ -17,7 +17,7 @@ main(){
     blankprotect &
 
     # Lock and start cmatrix
-    sudo -HPE -u user1 /bin/bash -c alock -b none -c blank & urxvt -e cmatrix
+    sudo -HPE -u user1 /bin/bash -c alock -auth passwd -b none -c blank & urxvt -e cmatrix
     
     # Reset
     xdotool key super+b
