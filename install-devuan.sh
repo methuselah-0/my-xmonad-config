@@ -25,7 +25,7 @@ ln -s /home/$username/.xmonad/.Xdefaults /home/$username/.Xdefaults
 git clone https://github.com/lrwega/xwinwrap && cd xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock
 # alock
-cp -r ~/.xmonad/alock ~/bin/ && cd ~/bin/alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
+git clone https://github.com/Arkq/alock ~/bin/ && cd ~/bin/alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
 
 # start screensaver-checking
 crontab -l > /tmp/crontab.tmp
