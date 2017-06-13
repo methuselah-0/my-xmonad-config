@@ -1,9 +1,9 @@
 #!/bin/bash
 if [[ $(id -u) -ne 0 ]] ; then echo 'Please run me as root or "sudo ./install-devuan.sh"' ; exit 1 ; fi
-read -p -r "Your username? " ;
+read -p "Your username? "
 username=$REPLY
 usergroup=$REPLY
-read -p -r "Your user group? (leave empty for same as user) " ;
+read -p "Your user group? (leave empty for same as user) "
 if [[ -n $REPLY ]] ; then
     usergroup=$REPLY
 fi
