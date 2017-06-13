@@ -23,7 +23,7 @@ apt-get install -y xfonts-* ttf-* rxvt-unicode
 ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
 
 # wallpaper and screenlock
-cd /home/"$username"/bin && git clone https://github.com/lrwega/xwinwrap && cd xwinwrap && make && make install
+cd /home/"$username"/bin && git clone https://github.com/lrewega/xwinwrap && cd xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock mcron
 # alock
 cd /home/"$username"/bin && git clone https://github.com/Arkq/alock && cd alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
