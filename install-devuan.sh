@@ -8,8 +8,10 @@ if [[ -n $REPLY ]] ; then
     usergroup=$REPLY
 fi
 
-# dependencies 
-apt-get install -y git dh-autoreconf libgcrypt20-dev imlib2-dev libpam0g-dev
+# dependencies
+echo "not installing dependencies.."
+apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev echo
+
 cd && mkdir -p /home/"$username"/bin
 
 # xmonad
