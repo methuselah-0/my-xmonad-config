@@ -10,7 +10,7 @@ fi
 
 # dependencies 
 apt-get install -y git dh-autoreconf libgcrypt20-dev imlib2-dev libpam0g-dev
-cd && mkdir -p ~/bin
+cd && mkdir -p /home/"$username"/bin
 
 # xmonad
 apt-get install -y xmonad libghc-xmonad-prof dmenu xmobar trayer unclutter feh imagemagick compton cmatrix cmatrix-xfont xdotool
