@@ -12,7 +12,7 @@ fi
 echo "not installing dependencies.."
 apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev echo
 
-cd && mkdir -p /home/"$username"/bin
+cd /home/"$username" && mkdir -p /home/"$username"/bin
 
 # xmonad
 apt-get install -y xmonad libghc-xmonad-prof dmenu xmobar trayer unclutter feh imagemagick compton cmatrix cmatrix-xfont xdotool
