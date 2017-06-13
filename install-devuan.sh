@@ -15,18 +15,18 @@ cd && mkdir -p ~/bin
 # xmonad
 apt-get install -y xmonad libghc-xmonad-prof dmenu xmobar trayer unclutter feh imagemagick compton cmatrix cmatrix-xfont xdotool
 chown -R "$username":"$usergroup" .xmonad
-ln -s /home/"$username"/.xmonad/scripts/screenlock.sh ~/bin/
-chown -R "$username":"$usergroup" ~/bin/screenlock.sh
+ln -s /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/
+chown -R "$username":"$usergroup" /home/"$username"/bin/screenlock.sh
 
 # terminal and fonts
 apt-get install -y xfonts-* ttf-* rxvt-unicode
 ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
 
 # wallpaper and screenlock
-git clone https://github.com/lrwega/xwinwrap ~/bin/xwinwrap && cd ~/bin/xwinwrap && make && make install
+cd /home/"$username"/bin && git clone https://github.com/lrwega/xwinwrap && cd xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock mcron
 # alock
-git clone https://github.com/Arkq/alock ~/bin/ && cd ~/bin/alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
+cd /home/"$username"/bin && git clone https://github.com/Arkq/alock && cd alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
 
 # start screensaver-checking
 crontab -l > /tmp/crontab.tmp
