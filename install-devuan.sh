@@ -1,11 +1,10 @@
 #!/bin/bash
-if [[ $(id -u) -ne 0 ]] ; then echo 'Please run me as root or "sudo ./install-devuan.sh"' ; exit 1 ; fi
-read -p "Your username? "
-username=$REPLY
-usergroup=$REPLY
-read -p "Your user group? (leave empty for same as user) "
-if [[ -n $REPLY ]] ; then
-    usergroup=$REPLY
+if [[ $(id -u) -ne 0 ]] ; then echo 'Please run me as root or "sudo ./install-devuan.sh <username>"' ; exit 1 ; fi
+if [[ -z $1 ]] ; then echo "Run this script with the username for which to install xmonad as first argument." ; fi
+username=$1
+usergroup=$1
+if [[ -n $2 ]] ; then
+    usergroup=$2
 fi
 
 # dependencies
