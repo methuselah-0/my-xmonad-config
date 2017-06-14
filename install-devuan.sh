@@ -37,3 +37,18 @@ printf '%s\n' "* * * * * screenlock.sh" >> /tmp/crontab.tmp
 crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
 export PATH="${PATH}":/home/"$username"/bin && printf '%s' 'export PATH="${PATH}":~/bin' >> /home/"$username"/.bashrc
+
+cat <<EOF > /home/${username}/.mpd/mpd.conf
+music_directory "/home/${username}/Music"
+playlist_directory "/home/${username}/.mpd/playlists"   
+db_file      "/home/${username}/.mpd/mpd.db"  
+log_file      "/home/${username}/.mpd/mpd.log"  
+pid_file      "/home/${username}/.mpd/mpd.pid"  
+state_file     "/home/${username}/.mpd/mpdstate"  
+audio_output {  
+#    type "PULSE"
+    type  "alsa"  
+    name  "MPD"  
+ }  
+mixer_type "software"
+EOF
