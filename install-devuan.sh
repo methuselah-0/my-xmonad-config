@@ -7,6 +7,8 @@ if [[ -n $2 ]] ; then
     usergroup=$2
 fi
 
+cp -r ./ /home/${username}/
+
 # dependencies
 echo "not installing dependencies.."
 apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron xserver-xorg xinit mpd
@@ -39,6 +41,9 @@ crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
 export PATH="${PATH}":/home/"$username"/bin && printf '%s' 'export PATH="${PATH}":~/bin' >> /home/"$username"/.bashrc
 
+# mpd-related
+mkdir -p /home/${username}/Music && cp ./example_music/01.\ Colliding\ Lights.flac /home/${username}/Music/
+mkdir -p /home/$username/.mpd
 cat <<EOF > /home/${username}/.mpd/mpd.conf
 music_directory "/home/${username}/Music"
 playlist_directory "/home/${username}/.mpd/playlists"   
