@@ -22,6 +22,7 @@ chown -R "$username":"$usergroup" /home/"$username"/bin/screenlock.sh
 # terminal and fonts
 apt-get install -y xfonts-* ttf-* rxvt-unicode
 ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
+ln -s /home/"$username"/.xmonad/.Xmodmap /home/"$username"/.Xmodmap
 
 # wallpaper and screenlock
 cd /home/"$username"/bin && git clone https://github.com/lrewega/xwinwrap && cd xwinwrap && make && make install

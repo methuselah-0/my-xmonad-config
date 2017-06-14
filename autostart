@@ -86,4 +86,4 @@ xscreensaver -no-splash &
 # ~/.xinitrc. Xserver seems to need to be finished initializing;
 # adjust sleep seconds accordingly.
 
-sleep 5; /usr/bin/xmodmap /home/user1/.Xmodmap
+/usr/bin/xmodmap /home/user1/.Xmodmap
