@@ -9,7 +9,7 @@ fi
 
 # dependencies
 echo "not installing dependencies.."
-apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev echo
+apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron 
 
 cd /home/"$username" && mkdir -p /home/"$username"/bin
 
@@ -25,7 +25,7 @@ ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
 
 # wallpaper and screenlock
 cd /home/"$username"/bin && git clone https://github.com/lrewega/xwinwrap && cd xwinwrap && make && make install
-apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock mcron
+apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock
 # alock
 cd /home/"$username"/bin && git clone https://github.com/Arkq/alock && cd alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
 
@@ -36,3 +36,4 @@ printf '%s\n' "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 printf '%s\n' "* * * * * screenlock.sh" >> /tmp/crontab.tmp
 crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
+export PATH="${PATH}":/home/"$username"/bin && printf '%s' 'export PATH="${PATH}":~/bin' >> /home/"$username"/.bashrc
