@@ -9,7 +9,7 @@ fi
 
 # dependencies
 echo "not installing dependencies.."
-apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron 
+apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron xserver-xorg xinit mpd
 
 cd /home/"$username" && mkdir -p /home/"$username"/bin
 
