@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Copyright license: GPLv3
+# David Larsson
+
 if [[ $(id -u) -ne 0 ]] ; then echo 'Please run me as root or "sudo ./install-devuan.sh <username>"' ; exit 1 ; fi
 if [[ -z $1 ]] ; then echo "Run this script with the username for which to install xmonad as first argument." ; fi
 username=$1
