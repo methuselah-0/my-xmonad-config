@@ -10,4 +10,5 @@ for i in {0..5} ; do
     fi
 done
 printf '%s' "${vol%\ \*\ }"
+
 #printf '%s' "$(amixer sget Master | grep -Eo "[0-9]{1,3}%")" 

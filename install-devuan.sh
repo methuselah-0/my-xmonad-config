@@ -11,8 +11,6 @@ if [[ -n $2 ]] ; then
     usergroup=$2
 fi
 
-cp -r ./ /home/${username}/
-
 # dependencies
 echo "not installing dependencies.."
 apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron xserver-xorg xinit mpd mpc libalsaplayer0 pavucontrol gstreamer0.10-alsa gstreamer0.10-plugins-base sudo
