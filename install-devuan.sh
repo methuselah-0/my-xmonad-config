@@ -28,7 +28,7 @@ ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
 ln -s /home/"$username"/.xmonad/.Xmodmap /home/"$username"/.Xmodmap
 
 # wallpaper and screenlock, git clone https://github.com/lrewega/xwinwrap
-ln -s /home/"$username"/.xmonad/xwinwrap /home/"$username"/bin/xwinwrap
+ln -s /home/"$username"/.xmonad/xwinwrap/xwinwrap /home/"$username"/bin/xwinwrap
 cd /home/"$username"/.xmonad/xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock
 

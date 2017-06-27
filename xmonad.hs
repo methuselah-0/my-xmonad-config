@@ -132,16 +132,16 @@ myLayout = defaultLayout
 
     -- spacing needs the module XMonad.Layout.Spacing
     -- spacing x sets the number of pixels for space between tiled windows.
-    tiled1 = spacing 3 $ Tall nmaster delta ratio
+    tiled1 = spacing 1 $ Tall nmaster delta ratio
     
     -- The default number of windows in the master pane  
-    nmaster = 1 
+    nmaster = 1
 
     -- Default proportion of screen occupied by master pane  
     ratio = 2/3
 
     -- Percent of screen to increment by when resizing panes  
-    delta = 3/100  
+    delta = 3/100
 
     -- Custom layouts which can be used for specific workspaces. Dep.: XMonad.Layout.NoBorders
     nobordersLayout = noBorders $ Full
