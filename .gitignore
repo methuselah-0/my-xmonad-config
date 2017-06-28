@@ -1,5 +1,6 @@
 # Ignore file I'll likely delete
 test-script
+terminus-font-4.46
 
 # Ignore all .html files, except 'important.html'
 *.html

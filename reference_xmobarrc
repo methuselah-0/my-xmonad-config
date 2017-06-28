@@ -1,0 +1,69 @@
+Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+-- "xft:terminus:size=8" does but doesn't look like terminus.
+-- another "more normal" font is "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
+--        , bgColor = "black" -- hex black is "#000000"
+        , fgColor = "cyan"
+	--alpha=transparency and it can be 0-255, 0 is fully transparent.
+--	, alpha = 0
+        , position = Top
+	, hideOnStart = False
+        , allDesktops = True
+        , overrideRedirect = True
+        , commands = [ Run Cpu ["-L","3","-H","50","normal","green","high","red"] 10
+	--Run StdinReader
+--                     weather monitor
+--                   , Run Weather "RJTT" [ "template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+--                                          ] 36000
+                     , Run Com "/home/user1/.xmonad/scripts/cputemp.sh" [] "cpuTemp" 10      
+
+--                   cpu core temperature monitor
+--                     , Run CoreTemp [ "template" , "Temp: <core0>°C|<core1>°C"
+--                                    , "--Low"      , "40"        -- units: °C
+--                                    , "--Normal"   , "50"        -- units: °C
+--                                    , "--High"     , "60"        -- units: °C
+--                                    , "--low"      , "darkgreen"
+--                                    , "--normal"   , "darkorange"
+--                                    , "--high"     , "darkred"
+--				    ] 50
+--                     , Run Memory ["-t","Mem: <usedratio>%"] 10
+--                     , Run Swap [] 10
+
+                       , Run DynNetwork [ "template" , "<enp0s25>: <tx>kB/s|<rx>kB/s"
+                                      , "Low" , "1000" -- units: kB/s 
+                                      , "High", "5000" -- units: kB/s
+                                      , "low"   , "darkgreen" 
+                                      , "normal", "darkorange"
+                                      , "high"  , "darkred"] 10
+--                     , Run Network "enp0s25" ["-L","0","-H","32","--normal","green","--high","red"] 10
+--                     , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+--                     , Run MPD ["-t", "<state>: <artist> - <track>"] 10
+                     , Run Com "/home/user1/.xmonad/scripts/mpd.sh" [] "mpd" 10
+                     , Run Com "/home/user1/.xmonad/scripts/volume.sh" [] "volume" 10 
+                     , Run Date "%a %b %d %Y %H:%M:%S" "date" 10
+	             , Run Battery [ "--template" , "Battery: <acstatus>"
+                                   , "--Low"      , "10"        -- units: %
+				   , "--High"     , "80"        -- units: %
+	                           , "--low"      , "red"
+	                           , "--normal"   , "orange"
+	                           , "--high"     , "green"
+                                   , "--" -- battery specific options
+                                          -- discharging status
+                                          , "-o"	, "<left>% (<timeleft>)"
+				          -- AC "on" status
+				          , "-O"	, "<fc=#dAA520>Charging</fc>"
+				          -- charged status
+					  , "-i"	, "<fc=#006000>Charged</fc>"
+				  ] 50
+--                    keyboard layout indicator
+--                     , Run Kbd [ ("us(qwerty)" , "<fc=#00008B>DV</fc>")
+--                               , ("us"         , "<fc=#8B0000>US</fc>")
+--                               ]
+                     ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " <fc=green>%mpd%</fc> | <fc=green>Vol: %volume%</fc> } <fc=green>%date%</fc> { <fc=green> %battery%</fc> | <fc=green>%cpu% %cpuTemp%°C</fc> | <fc=green>%dynnetwork%</fc>"
+        }
+--%StdinReader%
+-- set to cpuTemp to fix cpu and uncomment cpuTemp
+--    , Run Weather "EGPF" weatherConfig 36000      
+--weatherConfig = ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"]

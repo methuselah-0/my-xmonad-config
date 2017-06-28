@@ -20,7 +20,8 @@ chown "${username}":"${username}" /home/"$username"/bin
 
 # xmonad
 apt-get install -y xmonad libghc-xmonad-prof dmenu xmobar trayer unclutter feh imagemagick compton cmatrix cmatrix-xfont xdotool
-ln -s /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/
+cat /home/${username}/.xmonad/scripts/screenlock.sh.in | awk -v myuser="${username}" '{ sub(/user1/, myuser); print }' 
+ln -s /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/screenlock.sh
 
 # terminal and fonts
 apt-get install -y xfonts-* ttf-* rxvt-unicode
@@ -33,14 +34,14 @@ cd /home/"$username"/.xmonad/xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock
 
 # alock, git clone https://github.com/Arkq/alock
-ln -s /home/"$username"/.xmonad/alock /home/"$username"/bin/alock
-cd /home/"$username"/.xmonad/alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make
+#ln -s /home/"$username"/.xmonad/alock/alock /home/"$username"/bin/alock
+cd /home/"$username"/.xmonad/alock && autoreconf --install && ./configure --enable-pam --enable-hash --enable-xrender --enable-imlib2 --with-dunst --with-xbacklight && make && make install
 
 # start screensaver-checking
 sudo -u "$username" crontab -l > /tmp/crontab.tmp
 sudo -u "$username" crontab -l > /tmp/crontab.bak # for backup
 printf '%s\n' "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/$username/bin" >> /tmp/crontab.tmp
-printf '%s\n' "* * * * * screenlock.sh" >> /tmp/crontab.tmp
+printf '%s\n' "* * * * * DISPLAY=:0 screenlock.sh" >> /tmp/crontab.tmp
 sudo -u "$username" crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
 export PATH="${PATH}":/home/"$username"/bin && printf '%s' 'export PATH="${PATH}":~/bin' >> /home/"$username"/.bashrc

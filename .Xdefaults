@@ -36,6 +36,7 @@ URxvt*foreground:  Cyan
 URxvt*borderless:  true
 URxvt.font:        -*-terminus-medium-*-*-*-*-180-*-*-*-*-iso8859-1
 URxvt.boldFont:    -*-terminus-bold-*-*-*-*-180-*-*-*-*-iso8859-1
+URxvt.iso14755: false
 !URxvt.boldFont:           xft:terminus:bold:pixelsize=12
 !URxvt.font:       xft:terminus:pixelsize=12
 !URxvt*letterSpace: -2
