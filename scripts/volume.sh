@@ -9,6 +9,5 @@ for i in {0..5} ; do
 	vol+="$(pamixer --get-volume --sink $i)% * "
     fi
 done
-printf '%s' "${vol%\ \*\ }"
-
-#printf '%s' "$(amixer sget Master | grep -Eo "[0-9]{1,3}%")" 
+#printf '%s' "${vol%\ \*\ }"
+printf '%s' "$(amixer sget Master | grep -Eo "[0-9]{1,3}%")" 
