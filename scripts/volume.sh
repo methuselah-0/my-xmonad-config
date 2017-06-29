@@ -10,4 +10,5 @@ for i in {0..5} ; do
     fi
 done
 #printf '%s' "${vol%\ \*\ }"
+# how to read volume from several "sinks" using alsa? possibly useful link: https://lab.dyne.org/AlsaVolume
 printf '%s' "$(amixer sget Master | grep -Eo "[0-9]{1,3}%")" 

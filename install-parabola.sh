@@ -1,6 +1,7 @@
 #!/bin/bash
 f_do_Dependencies(){
-    pacman -S --noconfirm make automake autoconf xorg-xbacklight dunst xorg imlib2 libgcrypt libxrender libxxf86misc pam xmlto libxcursor pkg-config terminus-font pamixer pulseaudio pulseaudio-alsa alsa-lib alsa-tools alsa-utils alsa-plugins mpd mpc ncmpcpp # xorg for alock, automake needed for aclocal error of alock build. autoconf has autoreconf which is needed for alock build, xorg-xbackligt and dunst are also for alock
+    pacman -S --noconfirm make automake autoconf xorg-xbacklight dunst xorg imlib2 libgcrypt libxrender libxxf86misc pam xmlto libxcursor pkg-config terminus-font
+    pacman -S --noconfirm pamixer pulseaudio pavucontrol pulseaudio-alsa alsa-lib alsa-tools alsa-utils alsa-plugins mpd mpc ncmpcpp # xorg for alock, automake needed for aclocal error of alock build. autoconf has autoreconf which is needed for alock build, xorg-xbackligt and dunst are also for alock
     mkdir -p /home/"$username"/bin
     chown "${username}":"${username}" /home/"$username"/bin
 }
@@ -27,7 +28,11 @@ f_do_Wallpaper_And_Screenlock(){ # git clone https://github.com/lrewega/xwinwrap
     if [[ ! -f /home/"$username"/.xmonad/xwinwrap ]] ; then
 	ln -s -i /home/"$username"/.xmonad/xwinwrap/xwinwrap /home/"$username"/bin/xwinwrap
     fi
-    pacman -S --noconfirm xscreensaver 
+    pacman -S --noconfirm xscreensaver
+    # todo
+    # sed -i.bak '/mode/s/mode.*/mode:\tblank/' /home/${username}/.xscreensaver
+    # sed -i.bak '/lock/s/lock.*/lock:\tfalse/' /home/${username}/.xscreensaver
+    # sed -i.bak '/timeout/s/timeout.*/timeout:\t00:15:00/' /home/${username}/.xscreensaver
 }
 
 f_do_Alock(){ # git clone https://github.com/Arkq/alock
@@ -65,6 +70,10 @@ EOF
     chown -R "$username":"$usergroup" /home/${username}/.xmonad
     chown -R "$username":"$usergroup" /home/${username}/.mpd
     mpc update
+    # fix pulseaudio under openrc (still won't fix using pamixer)
+    # source: https://forum.manjaro.org/t/pulseaudio-and-openrc/5881/3
+    pacman -S pulseaudio pulseaudio-alsa pamixer pavucontrol
+    sed -i.bak 's/autospawn/#autospawn/g' /etc/pulse/client.conf
 }
 main(){
     username=$1

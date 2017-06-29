@@ -11,7 +11,6 @@ Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support
         , allDesktops = True
         , overrideRedirect = True
         , commands = [ Run Cpu ["-L","3","-H","50","normal","green","high","red"] 10
-	, Run Com "/home/user1/.xmonad/scripts/cputemp.sh" [] "cpuTemp" 10
 	, Run DynNetwork [ "template" , "<enp0s25>: <tx>kB/s|<rx>kB/s"
                                       , "Low" , "1000" -- units: kB/s 
                                       , "High", "5000" -- units: kB/s
@@ -20,6 +19,7 @@ Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support
                                       , "high"  , "darkred"] 10
 	, Run Com "/home/user1/.xmonad/scripts/mpd.sh" [] "mpd" 10
 	, Run Com "/home/user1/.xmonad/scripts/volume.sh" [] "volume" 10
+	, Run Com "/home/user1/.xmonad/scripts/cputemp.sh" [] "cpuTemp" 10
 	, Run Battery [ "--template" , "Battery: <acstatus>"
                                    , "--Low"      , "10"        -- units: %
 				   , "--High"     , "80"        -- units: %
