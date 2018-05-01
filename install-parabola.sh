@@ -8,8 +8,6 @@ f_do_Dependencies(){
 
 f_do_Xmonad(){
     pacman -S --noconfirm xmonad xmonad-contrib xmobar trayer dmenu unclutter feh imagemagick compton cmatrix xdotool
-    cat /home/${username}/.xmonad/scripts/screenlock.sh.in | awk -v myuser="${username}" '{ sub(/user1/, myuser); print }' > /home/${username}/.xmonad/scripts/screenlock.sh
-    ln -s -i /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/
 }
 
 f_do_Terminal_And_Fonts(){
@@ -24,6 +22,9 @@ f_do_Terminal_And_Fonts(){
 }
 
 f_do_Wallpaper_And_Screenlock(){ # git clone https://github.com/lrewega/xwinwrap
+    cat /home/${username}/.xmonad/scripts/screenlock.sh.in | awk -v myuser="${username}" '{ sub(/user1/, myuser); print }' > /home/${username}/.xmonad/scripts/screenlock.sh
+    ln -s -i /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/
+    
     cd /home/"$username"/.xmonad/xwinwrap && make && make install
     if [[ ! -f /home/"$username"/.xmonad/xwinwrap ]] ; then
 	ln -s -i /home/"$username"/.xmonad/xwinwrap/xwinwrap /home/"$username"/bin/xwinwrap

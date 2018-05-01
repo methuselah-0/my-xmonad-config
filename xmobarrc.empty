@@ -1,0 +1,16 @@
+--Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+Config  { font = "xft:terminus:size=8" -- this does not support pseudo-transparency with alpha.
+        , fgColor = "cyan"
+        , position = Top
+	, hideOnStart = False
+        , allDesktops = True
+        , overrideRedirect = True
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " h } e { j "
+        }
+--%StdinReader%
+
+--	, 
+--        , Run Network "enp0s25" ["-L","0","-H","32","--normal","green","--high","red"] 10
+--        , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10

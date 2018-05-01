@@ -1,19 +1,29 @@
+! see these links for some nice conf inspiration
+! https://gist.github.com/yevgenko/1167205
+! https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
 !URxvt*background:  Black
-
-URxvt*transparent: true ! needs not be true.
+URxvt*transparent: true
 !URxvt*ineheritPixmap: true
-URxvt*fading:      20 ! the less the brighter
+URxvt*fading:      40 ! higher means more transparency for non-focused window
 URxvt*shading:     100 ! Shading is a value between 0 and 200 where 0 is completely black, 100 completely transparent and 200 completely white.
 
 !for real transparency, see https://wiki.haskell.org/Xmonad/Frequently_asked_questions
 URxvt.fadeColor:   [0]black
 URxvt.depth:       32
-URxvt*background:  rgba:0000/0000/0000/9999
-!this specifies that urxvt uses 32 bit colors and uses a transparent black background. The four c specify the amount of alpha in HEX with ffff being full black and 0000 being fully transparent. You can also use the fading and blurRadius resources to give some nice effects in the transparency. see man urxvt.
+URxvt*background:  rgba:0000/0000/0000/bbbb
+!URxvt*background:  rgba:0000/0000/0000/0000
+!this specifies that urxvt uses 32 bit colors and uses a transparent black background. The four b specify the amount of alpha in HEX with ffff being full black and 0000 being fully transparent. You can also use the fading and blurRadius resources to give some nice effects in the transparency. see man urxvt.
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle: hintslight
 
 URxvt*scrollBar:   false
+!URxvt*foreground:  LightGrey
 URxvt*foreground:  Cyan
 !URxvt*foreground:  DarkMagenta
+!URxvt*foreground: #f57900
 !URxvt*foreground:  #89B6E2
 !URxvt*foreground:  #cccccc
 !URxvt*foreground:  #34cbcb
@@ -21,24 +31,23 @@ URxvt*foreground:  Cyan
 !URxvt*foreground:  #5dd5d5
 !URxvt*foreground:  #71dada
 !URxvt*foreground:  #85e0e0
-
 !URxvt*foreground:  #ffffff ! white
-
 !URxvt*foreground:  #b32400
 !URxvt*foreground:  #b30000 ! dark red
 !URxvt*foreground:  #003B00 ! dark red
 !URxvt*foreground:  #00e600
 !URxvt*foreground:  #009900 ! dark green
-
 !URxvt*foreground:  #ff3300
 
-
 URxvt*borderless:  true
-URxvt.font:        -*-terminus-medium-*-*-*-*-180-*-*-*-*-iso8859-1
-URxvt.boldFont:    -*-terminus-bold-*-*-*-*-180-*-*-*-*-iso8859-1
+! example font search: fc-list -v | grep -i Palladio
+!URxvt.font:        -*-terminus-medium-*-*-*-*-180-*-*-*-*-iso8859-1
+!URxvt.boldFont:    -*-terminus-bold-*-*-*-*-180-*-*-*-*-iso8859-1
 URxvt.iso14755: false !see https://help.ubuntu.com/community/GtkComposeTable
-!URxvt.boldFont:           xft:terminus:bold:pixelsize=12
-!URxvt.font:       xft:terminus:pixelsize=12
+URxvt.boldFont:           xft:terminus:bold:pixelsize=26
+!URxvt.boldFont:           xft:URWPalladioL-Roma:bold:pixelsize=18
+URxvt.font:       xft:terminus:pixelsize=26
+!URxvt.font:       xft:URWPalladioL-Roma:pixelsize=18
 !URxvt*letterSpace: -2
 !The bells stuff doesnt work :/
 !URxvt*visualBell:  true
@@ -46,7 +55,8 @@ URxvt*vt100.bellsUrgent: true
 URxvt.saveLines:   32767
 
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
+!URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: icecat
 URxvt.matcher.button: 1
 URxvt.matcher.rend.0: Uline Bold fg5
 ! to reload: xrdb -load .Xdefaults

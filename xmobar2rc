@@ -1,4 +1,5 @@
-Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+--Config  { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" -- this does not support pseudo-transparency with alpha.
+Config  { font = "xft:terminus:size=8" -- this does not support pseudo-transparency with alpha.
 -- "xft:terminus:size=8" does but doesn't look like terminus.
 -- another "more normal" font is "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"  
 --        , bgColor = "black" -- hex black is "#000000"

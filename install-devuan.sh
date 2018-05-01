@@ -13,7 +13,9 @@ fi
 
 # dependencies
 echo "not installing dependencies.."
-apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron xserver-xorg xinit mpd mpc libalsaplayer0 pavucontrol gstreamer0.10-alsa gstreamer0.10-plugins-base sudo
+apt-get update && apt-get upgrade
+apt-get install -y git dh-autoreconf libgcrypt20-dev libimlib2-dev libpam0g-dev mcron xserver-xorg xinit
+apt-get install -y  pulseaudio pavucontrol alsa-tools alsa-utils mpd mpc ncmpcpp libalsaplayer0 pavucontrol gstreamer0.10-alsa gstreamer0.10-plugins-base sudo
 
 mkdir -p /home/"$username"/bin
 chown "${username}":"${username}" /home/"$username"/bin
@@ -24,12 +26,12 @@ cat /home/${username}/.xmonad/scripts/screenlock.sh.in | awk -v myuser="${userna
 ln -s /home/"$username"/.xmonad/scripts/screenlock.sh /home/"$username"/bin/screenlock.sh
 
 # terminal and fonts
-apt-get install -y xfonts-* ttf-* rxvt-unicode
-ln -s /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
-ln -s /home/"$username"/.xmonad/.Xmodmap /home/"$username"/.Xmodmap
+#apt-get install -y xfonts-* ttf-* rxvt-unicode
+ln -s -i /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
+ln -s -i /home/"$username"/.xmonad/.Xmodmap /home/"$username"/.Xmodmap
 
 # wallpaper and screenlock, git clone https://github.com/lrewega/xwinwrap
-ln -s /home/"$username"/.xmonad/xwinwrap/xwinwrap /home/"$username"/bin/xwinwrap
+ln -s -i /home/"$username"/.xmonad/xwinwrap/xwinwrap /home/"$username"/bin/xwinwrap
 cd /home/"$username"/.xmonad/xwinwrap && make && make install
 apt-get install -y xscreensaver xscreensaver-gl xscreensaver-gl-extra xss-lock
 
@@ -46,8 +48,19 @@ sudo -u "$username" crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
 export PATH="${PATH}":/home/"$username"/bin && printf '%s' 'export PATH="${PATH}":~/bin' >> /home/"$username"/.bashrc
 
+f_do_Terminal_And_Fonts(){
+    unp /home/"$username"/.xmonad/"${font}"
+    cd /home/"$username"/.xmonad/"${font%tar.gz}"
+    ./configure --prefix=/usr
+    make -j4
+    make install fontdir
+    ln -s -i /home/"$username"/.xmonad/.Xdefaults /home/"$username"/.Xdefaults
+    ln -s -i /home/"$username"/.xmonad/.Xmodmap /home/"$username"/.Xmodmap
+}
+f_do_Terminal_And_Fonts
+
 # mpd-related
-mkdir -p /home/${username}/Music && cp ./example_music/01.\ Colliding\ Lights.flac /home/${username}/Music/
+mkdir -p /home/${username}/Music && cp /home${username}/example_music/01.\ Colliding\ Lights.flac /home/${username}/Music/
 chown "${username}":"${username}" /home/${username}/Music/
 mkdir -p /home/$username/.mpd
 cat <<EOF > /home/${username}/.mpd/mpd.conf

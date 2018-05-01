@@ -28,9 +28,13 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Dmenu
 import System.IO
 import System.Posix.Process
+import System.Directory --guixSD
+import System.Environment --guixSD
 
-main = do  
-  topBar <- spawnPipe "xmobar ~/.xmonad/xmobarrc" --spawnPipe needs XMonad.Util.Run --enable together with logHook below for stdInReader in xmobar.
+main = do
+  exec <- getExecutablePath
+  full <- makeAbsolute exec
+  topBar <- spawn "xmobar ~/.xmonad/xmobarrc.empty" --spawnPipe needs XMonad.Util.Run --enable together with logHook below for stdInReader in xmobar.
 
 -- if you want bottom bar uncomment loghook section below as well.
 -- spawnPipe needs XMonad.Util.Run --enable together with logHook below for stdInReader in xmobar.    

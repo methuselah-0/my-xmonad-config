@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/profile/bin/bash
 
 # -------------------------------------------------------- #
 
@@ -36,22 +36,23 @@ killall trayer xwinwrap compton "$saver" && sleep 1
 # Set the window bars that hold xmobars at top and bottom.
 #until [[ !pgrep trayer && !pgrep xwinwrap && !pgrep compton ]] ; do sleep 0.2 ; done
 # alpha 0-255 is non-transparent to fully transparent.
-trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10 & 
-trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10  &
+#trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10 & 
+#trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 0 --transparent true --alpha 255 --tint 0x000000 --height 10  &
 sleep 1;
 
 # 1 for xscreensaver and 0 for feh
 bg="1"
 bgimage="wallpaperdefault" #wallpaperdefault is an alias from .bashrc
-if [[ $bg == "1" ]] ; then
+#if [[ "$bg" == "1" ]] ; then
     # Start the compositor
     compton --shadow-green 1 &
     sleep 1
     # Use a nice xscreensaver background
-    xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID -speed 0.2 -no-rotate &
-elif [[ bg = "0" ]] ; then
-    eval "${bgimage}"
-fi
+    #xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -root -window-id WID -speed 1 -no-rotate &
+    xwinwrap -ov -fs -ni -- /run/current-system/profile/share/xscreensaver/config/"${saver}.xml" -root -window-id WID -speed 1 -no-rotate &    
+#elif [[ bg = "0" ]] ; then
+#    eval "${bgimage}"
+#fi
 
 #xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -ping gnu.org fosdem.org &
 #xwinwrap -ov -fs -ni -- /usr/lib/xscreensaver/"$saver" -program 'cat /home/user1/bin/nextcloud-suite.sh/install.sh' -root -window-id WID &
@@ -63,7 +64,7 @@ xsetroot -cursor_name left_ptr &
 unclutter -root -idle 1 &
 
 # Start music server.
-mpd &
+#mpd &
 
 # Silence all Xorg sounds
 xset -b
@@ -71,6 +72,11 @@ xset -b
 # Load default X settings.
 xrdb -merge .Xdefaults &
 
+# fix caps
+xmodmap ~/.Xmodmap
+
+# start dzen bar
+~/.xmonad/scripts/my_dzen2.sh
 # Start a terminal
 urxvt &
 
@@ -86,4 +92,5 @@ xscreensaver -no-splash &
 # ~/.xinitrc. Xserver seems to need to be finished initializing;
 # adjust sleep seconds accordingly.
 
-/usr/bin/xmodmap /home/user1/.Xmodmap
+#/usr/bin/xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap
