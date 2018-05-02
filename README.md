@@ -1,7 +1,3 @@
-This repo is a mirror of my xmonad setup running on two different systems:
-  * libreboot X200 with Parabola GNU/Linux
-  * Devuan GNU/Linux
-
 It has a green Matrix theme configured with:
   * green-colored dmenu
   * 2 green-colored xmobar
@@ -13,6 +9,10 @@ License: GPLv3
 
 # Screenshot
 ![methuselah-0 xmonad screenshot](https://github.com/methuselah-0/my-xmonad-config/blob/master/screenshot.png)
+
+# Installation GuixSD
+Choose the GuixSD branch instead of master before cloning. Then run ./install-guixsd.sh
+gcc-toolchain must be installed by specific user and xmonad as system user. Then you might need to install some extra packages if install-script misses some.
 
 # Installation Devuan
 Download this repo to ~/.xmonad
