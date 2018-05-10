@@ -44,11 +44,14 @@ URxvt*borderless:  true
 !URxvt.font:        -*-terminus-medium-*-*-*-*-180-*-*-*-*-iso8859-1
 !URxvt.boldFont:    -*-terminus-bold-*-*-*-*-180-*-*-*-*-iso8859-1
 URxvt.iso14755: false !see https://help.ubuntu.com/community/GtkComposeTable
-URxvt.boldFont:           xft:terminus:bold:pixelsize=26
+!URxvt.boldFont:           xft:terminus:bold:pixelsize=24
+!URxvt.boldFont:	   xft:SourceCodePro:pixelsize=24
 !URxvt.boldFont:           xft:URWPalladioL-Roma:bold:pixelsize=18
-URxvt.font:       xft:terminus:pixelsize=26
+URxvt.font:       xft:terminus:pixelsize=24,xft:DejaVu Sans Mono:size=18:antialias=true:hinting=true !the fallback to DejaVu Sans Mono is to fix display of unicode characters such as \u2619 etc.
+!URxvt.font:	   xft:SourceCodePro:pixelsize=24
 !URxvt.font:       xft:URWPalladioL-Roma:pixelsize=18
-!URxvt*letterSpace: -2
+!URxvt.font: xft:DejaVu:pixelsize=14
+!URxvt*letterSpace: 5
 !The bells stuff doesnt work :/
 !URxvt*visualBell:  true
 URxvt*vt100.bellsUrgent: true
